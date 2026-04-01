@@ -39,5 +39,13 @@ services:
         condition: service_healthy
     restart: on-failure
 
+  frontend:
+    build: ../demo-turnos-angular
+    container_name: turnos_frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - api
+
 volumes:
   mssql_data:
